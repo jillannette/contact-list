@@ -1,7 +1,11 @@
 import React from 'react';
-import './App.css'
+import { Link } from 'react-router-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import ViewContact from './ViewContact'
+import AddContact from './AddContact'
+import FullContactList from './FullContactList';
 import styled from 'styled-components'
+import './App.css'
 
 const contacts = [
   {  
@@ -24,6 +28,23 @@ const contacts = [
     }
   ]  
 
+  const ContactList = ({contacts, addContact}) => (
+    <Switch>
+      <Route path='/home/addContact' render={(routerProps) => (
+        <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
+      )}/>
+
+      <Route path='/home/:id' render={(routerProps) => (
+        <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
+      )}/>
+
+      <Route path='/contactList' render={() => (
+        <FullContactList contacts={contacts} />
+      )}/>
+      
+    </Switch>
+  )
+
   const Button = styled.button
   `position: flex;
    background-color: #B2C8DF;
@@ -31,8 +52,13 @@ const contacts = [
    border-radius: 5px;
    box-shadow: 0px 2px 2px lightgray;`
 
-   function clickButton(){
-    alert('You clicked me')
+   function onClick(){
+    <Link to='/AddContact'>Add New Contact</Link>
+    
+    return (
+      <Link to='/addContact'>Add New Contact</Link>
+    )
+     
   }
   
 
@@ -40,11 +66,8 @@ const contacts = [
         
 function Home() {
   <div>
-    
     <h1>Contact List</h1>
   </div>
-
-
 
     return (
     <><div className="app-container">
@@ -58,7 +81,7 @@ function Home() {
           {contacts.map((contacts, key) => {
             return (
               <tr key={key}>
-                <td>{contacts.photo}</td>
+                <td><button>View Contact</button></td>
                 <td>{contacts.name}</td>
                 <td>{contacts.email}</td>
                 <td>{contacts.phone}</td>
@@ -67,13 +90,13 @@ function Home() {
           })}
 
         </table>
-      </div><Button onClick={clickButton}>
+      </div><Button onClick={onClick}>
           Add New Contact
         </Button></>
     );
 
-    
       }
+    
 
   
    

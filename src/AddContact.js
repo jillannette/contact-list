@@ -1,75 +1,99 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 
-const addContact = (props) => {
+const AddContact = (props) => {
     return (
       <div>
         <form>
+            <label>Image_url</label>
+            <input type='text' className='form-control'onChange={event =>
+                this.setState({ name: event.target.value })
+            }/>
             <label>Name</label>
+            <input type='text' className='form-control'onChange={event =>
+                this.setState({ name: event.target.value })
+            }/>
+            <label>Email</label>
+            <input type='text' className='form-control'onChange={event =>
+                this.setState({ name: event.target.value })
+            }/>
+            <label>Phone</label>
+            <input type='text' className='form-control'onChange={event =>
+                this.setState({ name: event.target.value })
+            }/>
+
+            <button type='button' onClick={this.handleAddContactChange}>Submit</button>
         </form>
+
+        <Link to='/contactList'>Contact List</Link>
       </div>
-    
     )
-}
+};
+
+class newContact extends React.Component {
+    constructor () {
+        super () 
+
+    this.state = {
+        image: '',
+        name: '',
+        email: '',
+        phone: ''
+    }
+
+    this.handleAddContactChange = this.handleAddContactChange.bind(this)
+    }
 
 
+    handleAddContactChange () {
+        const newContact = {
+            image: this.state.image,
+            name: this.state.name,
+            email: this.state.email,
+            phone: this.state.email
+        };
 
-const handleAddContactChange = (event) => {
-  event.preventDefault();
-    return (
+        this.props.addContact(newContact)
+        this.props.history.push('/contactList')
+    }
+
+    render () {
+        return (
+            <div>
+        <form>
+          <label>Image</label>
+          <input type='url' className='form-control'onChange={event =>
+            this.setState({ image: event.target.value })
+          }/>
+
+          <br/>
+
+          <label>Name</label>
+          <input type='text' className='form-control'onChange={event =>
+            this.setState({ name: parseInt(event.target.value, 10) })
+          }/>
+
+          <br/>
+
+          <label>Email</label>
+          <input type='text' className='form-control'onChange={event =>
+            this.setState({ email: event.target.value })
+          }/>
+
+           <br/>
+
+            <label>Phone</label>
+          <input type='text' className='form-control'onChange={event =>
+            this.setState({ phone: event.target.value })
+          }/>
+
+          <button type="button" onClick={this.handleAddContactChange}>Submit</button>
+        </form>
         
-       <><h2>Add New Contact</h2><form>
-            <input
-                type="text"
-                name="name"
-                required="required"
-                placeholder="Name" />
-                onChange={handleAddContactChange}
-            <input
-                type="email"
-                name="email"
-                required="required"
-                placeholder="Email" />
-                onChange={handleAddContactChange}
-            <input
-                type="text"
-                name="phone"
-                required="required"
-                placeholder="Phone Number" />
-                onChange={handleAddContactChange}
-            <input
-                type="img"
-                name="image"
-                required="required"
-                placeholder="image url" />
-                onChange={handleAddContactChange}
-            <button type="submit">Add Contact</button>
-
-        </form><div /></>
-    );
-    ;
-
-const [addContact, setAddContact] = useState({
-  name: '',
-  email: '',
-  phone: '',
-  image: '',
-})
-
-
-  const fieldName = event.target.getAttribute('id');
-  const fieldValue = event.target.value;
-
-  const newContactData = {...addContact};
-  newContactData[fieldName] = fieldValue;
-
-  setAddContactData(newContactData)
-
+      <Link to='/contactList'>Contact List</Link>
+      </div>
+        )
+    }
 }
 
- const AddContact = (contact) => {
-  setContacts(contacts => {
-    return [...contacts, contacts]
-  })
-}
-
+export default AddContact
