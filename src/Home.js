@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
 import FullContactList from './FullContactList';
@@ -72,7 +71,6 @@ const navBar = () => {
   </>
 }
   
-
 
         
 function Home() {

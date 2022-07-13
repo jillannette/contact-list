@@ -3,16 +3,23 @@ import './App.css'
 import Home from './Home'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
-import ContactList from './ContactList'
-
-
-
 
 function App () {
   return (
     <BrowserRouter>
       <div className="App">
         <h1>Contact List App</h1>
+        <ul>
+          <li>
+            <a href='/'>Home</a>
+          </li>
+          <li>
+            <a href='/addContact'>Add Contact</a>
+          </li>
+          <li>
+            <a href='/viewContact'>View Contact</a>
+          </li>
+        </ul>
          
       </div>
       <Switch>
