@@ -1,38 +1,36 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 import _ from 'lodash'
-import Button from 'react-bootstrap/Button';
+
+import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
+import ContactList from './ContactList';
 
-const ViewContact = {
-  imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bren%C3%A9_Brown_Wikipedia.jpg/220px-Bren%C3%A9_Brown_Wikipedia.jpg",
-  name: '',
-  email: '',
-  phone: ''
-}
-
-    function ContactCard(props) {
-      return (
-        <Card style={{ width: '18rem'}}>
-          <Card.Img variant='top' src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bren%C3%A9_Brown_Wikipedia.jpg/220px-Bren%C3%A9_Brown_Wikipedia.jpg" />
-        <Card.Body>
-        <Card.Title>{props.contact.name}</Card.Title>
-        <Card.Text>
-          <h2>{props.contact.email}</h2>
-          <h2>{props.contact.phone}</h2>
-        </Card.Text>
-        <Button variant="primary">Back to Contact List</Button>
-        </Card.Body>
-        </Card>
-      );
-    }
-
-   
-
-    
+const ViewContact = (props) => {
+  return (
+    <>
+      <Card className="contact-card" style={{ width: '18rem' }}>
+      <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
+      <Card border="primary" style={{ width: '18rem' }}></Card>
+      <Card.Body>
+        <Card.Title>Name</Card.Title>
+        
+      </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>Email Address</ListGroup.Item>
+        <ListGroup.Item>Phone Number</ListGroup.Item>
+        </ListGroup>
+      <Card.Body>
+        <Card.Link href='/'>Back to Contact List</Card.Link>
+      </Card.Body>
+    </Card>
+  </>
+   )
+   }  
+ 
 
 
-  
-  export default ViewContact
-     
-    
+ 
+
+        
+        export default ViewContact

@@ -53,13 +53,24 @@ const contacts = [
    box-shadow: 0px 2px 2px lightgray;`
 
    function onClick(){
-    <Link to='/AddContact'>Add New Contact</Link>
+    alert('click');
+   
     
-    return (
-      <Link to='/addContact'>Add New Contact</Link>
-    )
-     
+    
   }
+     
+const navBar = () => {
+  <>
+  <ul>
+    <li>
+      <a href='/addContact'>Add Contact</a>
+    </li>
+    <li>
+      <a href='/'>View Contact</a>
+    </li>
+  </ul>
+  </>
+}
   
 
 
