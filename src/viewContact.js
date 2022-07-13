@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import React from 'react'
 import _ from 'lodash'
 
@@ -7,8 +7,7 @@ import Card from 'react-bootstrap/Card'
 import ContactList from './ContactList';
 
 const ViewContact = (props) => {
-  const navigate = useNavigate();
-  return (
+    return (
     <>
       <Card className="contact-card" style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />

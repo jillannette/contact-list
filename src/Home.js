@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
 import FullContactList from './FullContactList';
+import RedirectToViewContactPage from './RedirectToViewContactPage';
+
 import styled from 'styled-components'
 import './App.css'
 
@@ -27,22 +29,22 @@ const contacts = [
     }
   ]  
 
-  const ContactList = ({contacts, addContact}) => (
-    <Switch>
-      <Route path='/home/addContact' render={(routerProps) => (
-        <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
-      )}/>
+  // const ContactList = ({contacts, addContact}) => (
+  //   <Switch>
+  //     <Route path='/home/addContact' render={(routerProps) => (
+  //       <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
+  //     )}/>
 
-      <Route path='/home/:id' render={(routerProps) => (
-        <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
-      )}/>
+  //     <Route path='/home/:id' render={(routerProps) => (
+  //       <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
+  //     )}/>
 
-      <Route path='/contactList' render={() => (
-        <FullContactList contacts={contacts} />
-      )}/>
+  //     <Route path='/contactList' render={() => (
+  //       <FullContactList contacts={contacts} />
+  //     )}/>
       
-    </Switch>
-  )
+  //   </Switch>
+  // )
 
   const Button = styled.button
   `position: flex;
@@ -51,12 +53,18 @@ const contacts = [
    border-radius: 5px;
    box-shadow: 0px 2px 2px lightgray;`
 
-   function onClick(){
-    alert('click');
-   
-    
-    
-  }
+   const onClick = ({ history }) => {
+    const redirect = () => {
+      history.push('/ViewContact');
+    }
+
+    return (
+      <div>
+        
+        <button onClick={redirect}>View Contact </button>
+      </div>
+    )
+   }
      
 const navBar = () => {
   <>
@@ -90,7 +98,9 @@ function Home() {
           {contacts.map((contacts, key) => {
             return (
               <tr key={key}>
-                <td><button>View Contact</button></td>
+                <td><Link to="/ViewContact">
+                <button>View Contact</button>
+                  </Link></td>
                 <td>{contacts.name}</td>
                 <td>{contacts.email}</td>
                 <td>{contacts.phone}</td>
