@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Home from './Home'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
@@ -28,6 +29,8 @@ function App () {
       <Route path='/addContact' component={AddContact}/>
       </Switch> 
       </BrowserRouter> 
+
+      
      
         
     

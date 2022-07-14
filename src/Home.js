@@ -2,10 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
-import FullContactList from './FullContactList';
-import RedirectToViewContactPage from './RedirectToViewContactPage';
+import ButtonRedirect from './ButtonRedirect';
 
-import styled from 'styled-components'
 import './App.css'
 
 const contacts = [
@@ -46,29 +44,24 @@ const contacts = [
   //   </Switch>
   // )
 
-  const Button = styled.button
-  `position: flex;
-   background-color: #B2C8DF;
-   padding: 5px 15px;
-   border-radius: 5px;
-   box-shadow: 0px 2px 2px lightgray;`
 
-   const onClick = ({ history }) => {
-    const redirect = () => {
-      history.push('/ViewContact');
-    }
 
-    return (
-      <div>
+  //  const onClick = ({ history }) => {
+  //   const redirect = () => {
+  //     history.push('/ViewContact');
+  //   }
+
+  //   return (
+  //     <div>
         
-        <button onClick={redirect}>View Contact </button>
-      </div>
-    )
-   }
+  //       <button onClick={ButtonRedirect}>View Contact </button>
+  //     </div>
+  //   )
+  //  }
      
 const navBar = () => {
   <>
-  <ul>
+  <ul className="nav-bar">
     <li>
       <a href='/addContact'>Add Contact</a>
     </li>
@@ -109,14 +102,19 @@ function Home() {
           })}
 
         </table>
-      </div><Button onClick={onClick}>
-          Add New Contact
-        </Button></>
+      </div>
+      <div>
+      <Link to="/AddContact">
+        
+        <button onClick={ButtonRedirect}>Add a New Contact</button>
+      </Link>
+        </div>
+        </>
+        
+      
     );
 
       }
-    
+ 
 
-  
-   
   export default Home

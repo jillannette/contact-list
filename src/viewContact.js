@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
 import _ from 'lodash'
-
-import ListGroup from 'react-bootstrap/ListGroup'
 import Card from 'react-bootstrap/Card'
-import ContactList from './ContactList';
+import ListGroup from 'react-bootstrap/ListGroup'
 
-const ViewContact = (props) => {
+const ViewContact = () => {
     return (
-    <>
-      <Card className="contact-card" style={{ width: '18rem' }}>
+      <>
+    
+    
+    <Card className="contact-card" style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
       <Card border="primary" style={{ width: '18rem' }}></Card>
       <Card.Body>
@@ -25,9 +25,12 @@ const ViewContact = (props) => {
       </Card.Body>
     </Card>
   </>
+    
+  
    )
+   }
 
-   }  
+     
  
 
 
