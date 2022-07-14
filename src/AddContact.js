@@ -41,7 +41,32 @@ const AddContact = (props) => {
         </div>
             </>
         )
-           }
+           };
+
+  class newContact extends React.Component {
+    constructor () {
+      super () 
+
+      this.state = {
+        name: '',
+        email: '',
+        phone: ''
+      }
+
+      this.handleSubmitContactClick = this.handleSubmitContactClick.bind(this)
+    }
+
+    handleSubmitContactClick () {
+      const newContact = {
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phone
+      };
+
+      this.props.addContact(newContact)
+      this.props.history.push('/')
+    }
+  }
 
        
  

@@ -10,20 +10,20 @@ const ContactList = () => {
 }
 
 // ContactList = ({contacts, addContact}) => (
-  //   <Switch>
-  //     <Route path='/home/addContact' render={(routerProps) => (
-  //       <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
-  //     )}/>
+//     <Switch>
+//       <Route path='/home/addContact' render={(routerProps) => (
+//         <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
+//       )}/>
 
-  //     <Route path='/home/:id' render={(routerProps) => (
-  //       <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
-  //     )}/>
+//       <Route path='/home/:id' render={(routerProps) => (
+//         <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
+//       )}/>
 
-  //     <Route path='/contactList' render={() => (
-  //       <FullContactList contacts={contacts} />
-  //     )}/>
+//       <Route path='/contactList' render={() => (
+//         <FullContactList contacts={contacts} />
+//       )}/>
       
-  //   </Switch>
-  // )
+//     </Switch>
+  )
    
   export default ContactList

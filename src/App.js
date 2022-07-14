@@ -9,7 +9,7 @@ function App () {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>Contact List App</h1>
+        <h1>My Contacts</h1>
         <ul>
           <li>
             <a href='/'>Home</a>
@@ -37,13 +37,3 @@ function App () {
      )
     }
     export default App   
-
-
- 
-   
-        
-
-  
-    
-    
-

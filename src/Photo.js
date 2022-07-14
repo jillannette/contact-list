@@ -1,15 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { useState } from 'react'
 
-const Photo = () => {
+
+const Image = () => {
+    const [img, setImg] = useState();
+
+    const onImageChange = (e) => {
+        const [file] = e.target.files;
+        setImg(URL.createObjectURL(file));
+    };
+
+
     return (
+        <>
         <div>
-        <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Bren%C3%A9_Brown_Wikipedia.jpg/220px-Bren%C3%A9_Brown_Wikipedia.jpg"
-        alt="contact"
-        />
-        </div>
+            <input type="text" onChange={onImageChange} />
+            <img
+            src={img} alt="" />
+            <div/>
+       <div/>
+       </>
     )
 }
 
-export default Photo
+export default Image
