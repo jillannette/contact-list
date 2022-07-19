@@ -9,8 +9,8 @@ function App () {
   return (
     <BrowserRouter>
       <div className="App">
-        <h1>My Contacts</h1>
-        <ul>
+        <h1>Contact List App</h1>
+        <ul className = "Nav-list">
           <li>
             <a href='/'>Home</a>
           </li>
@@ -37,3 +37,6 @@ function App () {
      )
     }
     export default App   
+
+
+ 
