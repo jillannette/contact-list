@@ -5,7 +5,7 @@ import ButtonRedirect from './ButtonRedirect'
 import Home from './Home'
 
 
-const AddContact = (props) => {
+const AddContact = (contact) => {
    
     
         return (
@@ -15,19 +15,19 @@ const AddContact = (props) => {
           <Form className="add-form">
             
               <Form.Group className="mb-3" controlId="Form.Name">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>{contact.name}</Form.Label>
                 <Form.Control type="text" placeholder="Bob Jones" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="Form.Email">
-                <Form.Label>Email</Form.Label>
+                <Form.Label>{contact.email}</Form.Label>
                 <Form.Control type="email" placeholder="bobjones@email.com" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="Form.Phone">
-                <Form.Label>Phone</Form.Label>
+                <Form.Label>{contact.phone}</Form.Label>
                 <Form.Control type="text" placeholder="555-555-5555" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="Form.Image_Url">
-                <Form.Label>Image Url</Form.Label>
+                <Form.Label>{contact.image}</Form.Label>
                 <Form.Control type="text" placeholder="https://picsum.photos/200" />
               </Form.Group>
              

@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 import ViewContact from './ViewContact'
 import AddContact from './AddContact'
 import ButtonRedirect from './ButtonRedirect';
-
 import './App.css'
 
 const contacts = [
@@ -80,6 +79,7 @@ function Home() {
   </div>
 
     return (
+      
     <><div className="app-container">
         <table>
           <tr>
