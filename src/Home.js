@@ -1,120 +1,32 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import ViewContact from './ViewContact'
-import AddContact from './AddContact'
-import ButtonRedirect from './ButtonRedirect';
-import './App.css'
+import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactRouterBootstrap, { LinkContainer } from 'react-router-bootstrap'
+import { NavLink } from 'react-router-dom'
 
-const contacts = [
-  {  
-      "id": 1234567,
-      "name": "Brene Brown",
-      "email": "bbrown@risingstrong.com",
-      "phone": "111-111-1111"
-    },
-    {  
-      "id": 9053242,
-      "name": "Richard Powers",
-      "email": "rpowers@theoverstory.com",
-      "phone": "222-222-2222"
-    },
-    {  
-      "id": 12345678,
-      "name": "Ann Lamott",
-      "email": "alamott@hallelujiananyway.com",
-      "phone": "333-333-3333"
-    }
-  ]  
-
-  // const ContactList = ({contacts, addContact}) => (
-  //   <Switch>
-  //     <Route path='/home/addContact' render={(routerProps) => (
-  //       <AddContact history={routerProps.history} contacts={contacts} addContact={addContact} />
-  //     )}/>
-
-  //     <Route path='/home/:id' render={(routerProps) => (
-  //       <ViewContact contactId={parseInt(routerProps.match.params.id, 9053242)} contacts={contacts} />
-  //     )}/>
-
-  //     <Route path='/contactList' render={() => (
-  //       <FullContactList contacts={contacts} />
-  //     )}/>
-      
-  //   </Switch>
-  // )
-
-
-
-  //  const onClick = ({ history }) => {
-  //   const redirect = () => {
-  //     history.push('/ViewContact');
-  //   }
-
-  //   return (
-  //     <div>
-        
-  //       <button onClick={ButtonRedirect}>View Contact </button>
-  //     </div>
-  //   )
-  //  }
-     
-const navBar = () => {
-  <>
-  <ul className="nav-bar">
-    <li>
-      <a href='/addContact'>Add Contact</a>
-    </li>
-    <li>
-      <a href='/'>View Contact</a>
-    </li>
-  </ul>
-  </>
-}
-  
-
-        
-function Home() {
-  <div>
-    <h1>Contact List</h1>
-  </div>
-
-    return (
-      
-    <><div className="app-container">
-        <table>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-          </tr>
-          {contacts.map((contacts, key) => {
-            return (
-              <tr key={key}>
-                <td><Link to="/ViewContact">
-                <button>View Contact</button>
-                  </Link></td>
-                <td>{contacts.name}</td>
-                <td>{contacts.email}</td>
-                <td>{contacts.phone}</td>
-              </tr>
-            );
-          })}
-
-        </table>
-      </div>
-      <div>
-      <Link to="/AddContact">
-        
-        <button onClick={ButtonRedirect}>Add a New Contact</button>
-      </Link>
-        </div>
+export default function Home() {
+  return (
+    <>
+    <>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand as={NavLink} to="/">My Contact List App</Navbar.Brand>
+           
+              <Nav className="me-auto">
+               <LinkContainer to="/contactList">
+              <Nav.Link to="/contactList">View Contact List</Nav.Link>
+              </LinkContainer> 
+             
+              <LinkContainer to="/addContact">
+              <Nav.Link to="/addContact">Add a New Contact</Nav.Link>
+              </LinkContainer>
+              </Nav>
+            </Container>
+          </Navbar>
         </>
-        
-      
-    );
-
-      }
- 
-
-  export default Home
+    
+      </>
+  )
+}
